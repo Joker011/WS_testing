@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Message {
 	
 	
-	private int messageID;
+	private long messageID;
 	private String msg;
 	private Date created;
 	private String author;
@@ -18,16 +18,16 @@ public class Message {
 	
 	}
 	
-	public Message(int messageID, String msg, String author) {
+	public Message(long messageID, String msg, String author) {
 		this.messageID = messageID;
 		this.msg = msg;
 		this.created = new Date();
 		this.author = author;
 	}
-	public int getMessageID() {
+	public long getMessageID() {
 		return messageID;
 	}
-	public void setMessageID(int messageID) {
+	public void setMessageID(long messageID) {
 		this.messageID = messageID;
 	}
 	public String getMsg() {
