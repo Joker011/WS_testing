@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import com.mandar.javabrains.messanger_module1.model.Message;
 import com.mandar.javabrains.messanger_module1.service.MessageService;
 
-
+// we can write common annotation here ... 
 @Path("message")
 public class message1 {
 	
