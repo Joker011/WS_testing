@@ -10,6 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.mandar.javabrains.messanger_module1.model.Message;
@@ -20,13 +21,7 @@ import com.mandar.javabrains.messanger_module1.service.MessageService;
 public class message1 {
 	
 	MessageService ms = new MessageService();
-	 @GET
-	 @Produces(MediaType.APPLICATION_JSON)
-	public List<Message> getMessages()
-	{
-	 System.out.println("inside");
-		return ms.getAllMessages();
-	}
+	
 	 
 	 // A static sub-message calling
 	 @GET
@@ -37,8 +32,17 @@ public class message1 {
 		 return "test";
 	 }
 
-	 // a dynamic getting message wth param
+	 // query param
+	 @GET
+	 @Produces(MediaType.APPLICATION_JSON)
+	 public Message getmessagewithID(@QueryParam("id") Long id)
+	 {
+			 return ms.getMessage(id);
+		// we can write if conditin as id>0 else return all message
+	 }
 	 
+	 // a dynamic getting message wth param
+	
 	 @GET
 	 @Path("{messageID}")
 	 @Produces(MediaType.APPLICATION_JSON)
@@ -46,6 +50,16 @@ public class message1 {
 	 {
 		 return ms.getMessage(id);
 	 }
+	 
+	 /*
+		@GET
+		 @Produces(MediaType.APPLICATION_JSON)
+		public List<Message> getMessages()
+		{
+		 System.out.println("inside");
+			return ms.getAllMessages();
+		}
+	 */
 	 
 	 @POST
 	 @Produces(MediaType.APPLICATION_JSON)
@@ -73,5 +87,7 @@ public class message1 {
 	 {
 		 return ms.removeMessage(id);
 	 }
+
+	
 	 
 }
