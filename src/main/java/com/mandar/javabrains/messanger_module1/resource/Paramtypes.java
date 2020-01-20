@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 public class Paramtypes {
 	
 	
-	@GET
+	@GET 
 	@Path("test")
 	public String getMessage(@MatrixParam("param") String msg,
 			                 @HeaderParam("customheader") String head,
